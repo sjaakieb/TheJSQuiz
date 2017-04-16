@@ -59,7 +59,7 @@ export default class Quiz extends Component {
                             {currentQuestion.answers.map((question, key) =>
                                 <li key={key} className="mdl-list__item" onClick={e => this.answerQuestion(question, e)}>
                                     <span className="key">{questionPrefixes[key]}</span>
-                                    <span className="answer">{question.value}</span>
+                                    <button className="answer">{question.value}</button>
                                 </li>)}
                         </ul>
                     </div>

@@ -40,22 +40,26 @@
       }
 
       .answer {
-        font-size: 26px;
         width: 100%;
         border: 1px solid #ccc;
         cursor: pointer;
         padding: 8px;
+        background: #ffffff;
+        outline: 0;
+        font-size: 22px;
 
         @media (min-width: 768px) {
+          font-size: 24px;
           margin-left: 20px;
-          padding: 20px;
+          padding: 18px;
         }
       }
 
       &.incorrectAnswer {
+        pointer-events: none;
+
         .answer {
           background: $darkGray;
-          pointer-events: none;
         }
       }
     }
