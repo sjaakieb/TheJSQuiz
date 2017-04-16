@@ -14,6 +14,7 @@ export default() => {
                 <nav className="mdl-navigation">
                     <Link to="/" className="mdl-navigation__link">HOME</Link>
                     <Link to="/resources" className="mdl-navigation__link">RESOURCES</Link>
+                    <a href="https://github.com/JamieLivingstone/TheJSQuiz" target="_blank" className="mdl-navigation__link">GITHUB</a>
                 </nav>
             </div>
         </header>

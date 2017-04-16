@@ -32,6 +32,13 @@
         }
       }
 
+      &:hover {
+        .answer {
+          background: $darkGray;
+          transition: .2s ease;
+        }
+      }
+
       .answer {
         font-size: 26px;
         width: 100%;
@@ -43,9 +50,12 @@
           margin-left: 20px;
           padding: 20px;
         }
+      }
 
-        &:hover {
-          background: $lightGray;
+      &.incorrectAnswer {
+        .answer {
+          background: $darkGray;
+          pointer-events: none;
         }
       }
     }

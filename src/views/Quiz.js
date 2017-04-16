@@ -33,8 +33,7 @@ export default class Quiz extends Component {
         const answer = this.store.answerQuestion(question);
 
         if (answer === false) {
-            e.currentTarget.style.backgroundColor = '#ccc';
-            e.currentTarget.style.pointerEvents = 'none';
+            e.currentTarget.classList.add('incorrectAnswer');
         }
     }
 
@@ -57,10 +56,11 @@ export default class Quiz extends Component {
                         {currentQuestion.snippet && <Highlight className='js noselect'>{currentQuestion.snippet}</Highlight>}
 
                         <ul className="mdl-list">
-                            {currentQuestion.answers.map((question, key) => <li key={key} className="mdl-list__item">
-                                <span className="key">{questionPrefixes[key]}</span>
-                                <span className="answer" onClick={e => this.answerQuestion(question, e)}>{question.value}</span>
-                            </li>)}
+                            {currentQuestion.answers.map((question, key) =>
+                                <li key={key} className="mdl-list__item" onClick={e => this.answerQuestion(question, e)}>
+                                    <span className="key">{questionPrefixes[key]}</span>
+                                    <span className="answer">{question.value}</span>
+                                </li>)}
                         </ul>
                     </div>
                 )

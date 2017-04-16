@@ -32,6 +32,12 @@ server.connection({ port: 9000 });
 
 // Get Questions
 server.route({
+   config: {
+        cors: {
+            origin: ['*'],
+            credentials: true
+        }
+    },
    method: 'GET',
     'path': '/questions/{difficulty?}',
     handler: function (request, reply) {
