@@ -75,6 +75,19 @@ export default class Leaderboard extends Component {
                                   description="In depth lectures from industry leaders, my personal favorite. (Intermediate/Advanced)"
                                   link="http://frontendmasters.com"/>
                         </div>
+
+                        <h3>People to Follow</h3>
+                        <div className="android-card-container mdl-grid">
+                            <Card title="Kent C. Dodds"
+                                  description="Kent C. Dodds is a developer at PayPal and an amazing resource for all things front end/open source"
+                                  link="https://twitter.com/kentcdodds"/>
+                            <Card title="Chris Heilmann"
+                                  description="Developer at Microsoft (Edge) and a great developer to follow for a wide variety of daily posts."
+                                  link="https://twitter.com/codepo8"/>
+                            <Card title="Eric Elliott"
+                                  description="Author of Programming JavaScript Applications and a very reliable source of high quality posts."
+                                  link="https://twitter.com/_ericelliott"/>
+                        </div>
                     </div>
                 </div>
             </section>
