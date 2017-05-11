@@ -1,0 +1,10 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "jsx"
+  ],
+  "testPathIgnorePatterns": ["/node_modules/", "/mock/"],
+  "moduleNameMapper": {
+    "\\.(css|jpg|png)$": "<rootDir>/empty-module.js"
+  }
+}
