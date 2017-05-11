@@ -32,11 +32,12 @@ class AppState {
         this.quizEnded = false;
     }
 
-    setQuestions() {
-        this.questions = [];
+    setQuestions(inital = []) {
+        this.questions = inital;
 
         axios.get(`${apiUrl}/questions/${this.difficulty}`)
-            .then(res => this.questions = limitArray(randomArray(res.data), 15));
+            .then(res => this.questions = limitArray(randomArray(res.data), 15))
+            .catch(e => e);
     }
 
     answerQuestion(answer) {

@@ -1,0 +1,60 @@
+[
+  {
+    "_id": "58f0eafd717d95125b56b336",
+    "title": "Which event fires whenever a control loses focus?",
+    "snippet": "",
+    "difficulty": "intermediate",
+    "__v": 0,
+    "answers": [
+      {
+        "value": "onclick",
+        "isCorrect": false,
+        "_id": "58f0eafd717d95125b56b33a"
+      },
+      {
+        "value": "onmove",
+        "isCorrect": false,
+        "_id": "58f0eafd717d95125b56b339"
+      },
+      {
+        "value": "onblur",
+        "isCorrect": true,
+        "_id": "58f0eafd717d95125b56b338"
+      },
+      {
+        "value": "onchange",
+        "isCorrect": false,
+        "_id": "58f0eafd717d95125b56b337"
+      }
+    ]
+  },
+  {
+    "_id": "58f0eb87717d95125b56b33b",
+    "title": "The function call Math.ceil(3.5) returns",
+    "snippet": "",
+    "difficulty": "intermediate",
+    "__v": 0,
+    "answers": [
+      {
+        "value": "Throws a MathError exception.",
+        "isCorrect": false,
+        "_id": "58f0eb87717d95125b56b33f"
+      },
+      {
+        "value": "4",
+        "isCorrect": true,
+        "_id": "58f0eb87717d95125b56b33e"
+      },
+      {
+        "value": "0",
+        "isCorrect": false,
+        "_id": "58f0eb87717d95125b56b33d"
+      },
+      {
+        "value": "3",
+        "isCorrect": false,
+        "_id": "58f0eb87717d95125b56b33c"
+      }
+    ]
+  }
+]
