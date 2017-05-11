@@ -7,7 +7,7 @@
     "start": "node devserver.js && node api/server.js",
     "build": "rimraf ./dist && webpack --config webpack.config.production.js",
     "preview": "http-server ./dist -p 1234 -c-1",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Jamie Livingstone",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "html-webpack-plugin": "^2.22.0",
     "image-webpack-loader": "^2.0.0",
+    "jest": "^20.0.1",
     "node-sass": "^3.10.1",
     "postcss-loader": "^0.13.0",
     "precss": "^1.4.0",
@@ -34,18 +35,16 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0-rc.0",
-    "webpack-dev-server": "^2.1.0-beta.8"
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
     "axios": "^0.15.0",
     "faker": "^3.1.0",
     "hapi": "^16.1.0",
-    "interactjs": "^1.2.8",
     "lazy-route": "^1.0.7",
     "mobx": "^2.5.2",
     "mobx-react": "^3.5.7",
     "mobx-react-devtools": "^4.2.6",
-    "moment": "^2.15.1",
     "mongoose": "^4.9.2",
     "package": "^1.0.1",
     "react": "^15.3.2",
@@ -54,7 +53,6 @@
     "react-highlight.js": "^1.0.5",
     "react-interactjs": "^0.1.2",
     "react-router-dom": "^4.0.0-beta.7",
-    "simple-encryptor": "^1.1.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "beta",
     "whatwg-fetch": "^1.0.0"
