@@ -8,10 +8,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: {
         vendor: ['react', 'react-dom', 'react-router'],
-        app: [
-            'babel-polyfill',
-            './src/index'
-        ],
+        app: './src/index'
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -24,11 +21,7 @@ module.exports = {
         loaders: [{
             test: /\.js$/,
             include: path.join(__dirname, 'src'),
-            loader: 'babel-loader',
-            query: {
-                "presets": [[ "es2015", { modules: false } ], "stage-0", "react"],
-                "plugins": ['transform-async-to-generator', 'transform-decorators-legacy']
-            }
+            loader: 'babel-loader'
         }, {
             test: /\.scss$/i,
             loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap']),

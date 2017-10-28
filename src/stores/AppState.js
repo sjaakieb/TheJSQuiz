@@ -2,7 +2,7 @@ import {observable, action} from 'mobx'
 import axios from 'axios'
 import {limitArray, randomArray} from './helpers';
 
-const apiUrl = "http://thejsquiz.com/api";
+const apiUrl = "https://thejsquiz.com/api";
 
 class AppState {
     @observable questions = [];

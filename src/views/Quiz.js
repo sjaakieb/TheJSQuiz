@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
-import Highlight from 'react-highlight.js';
+//import Highlight from 'react-highlight.js';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // Custom components
@@ -53,7 +53,7 @@ export default class Quiz extends Component {
                     <div className="question" key={this.store.currentQuestionIndex}>
                         <h4>{currentQuestion.title}</h4>
 
-                        {currentQuestion.snippet && <Highlight className='js noselect'>{currentQuestion.snippet}</Highlight>}
+                        {/* {currentQuestion.snippet && <Highlight className='js noselect'>{currentQuestion.snippet}</Highlight>} */}
 
                         <ul className="mdl-list">
                             {currentQuestion.answers.map((question, key) =>
