@@ -12,8 +12,7 @@ export default (props) => {
             </div>
             <Link to={props.link} target="_blank">
                 <div className="mdl-card__actions">
-                    <div className="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href
-                         data-upgraded=",MaterialButton">
+                    <div className="android-link mdl-button mdl-js-button mdl-typography--text-uppercase">
                         View Resource
                         <i className="material-icons">chevron_right</i>
                     </div>

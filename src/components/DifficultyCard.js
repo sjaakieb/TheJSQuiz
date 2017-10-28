@@ -25,7 +25,7 @@ export default class Card extends Component {
                 </div>
                 <Link to="/quiz">
                     <div className="mdl-card__actions">
-                        <div className="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href data-upgraded=",MaterialButton">
+                        <div className="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" data-upgraded=",MaterialButton">
                             {this.props.difficulty === this.store.difficulty && "Resume Quiz" || "Start new quiz"}
                             <i className="material-icons">chevron_right</i>
                         </div>
