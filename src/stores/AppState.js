@@ -1,8 +1,11 @@
-import {observable, action} from 'mobx'
-import axios from 'axios'
-import {limitArray, randomArray} from './helpers';
+import { observable, action } from 'mobx';
+import axios from 'axios';
 
-const apiUrl = "https://thejsquiz.com/api";
+const apiUrl = 'https://thejsquiz.com/api';
+
+// Helper functions
+const randomArray = arr => arr.slice().sort(() => 0.5 - Math.random());
+const limitArray = (arr, size) => arr.slice(0, size);
 
 class AppState {
     @observable questions = [];
@@ -15,59 +18,61 @@ class AppState {
     @observable quizEnded = false;
 
     @action setQuizDifficulty(difficulty) {
-        if (difficulty !== this.difficulty) {
-            this.currentQuestionIndex = 0;
-            this.difficulty = difficulty;
-            this.correctAnswerCount = 0;
-            this.incorrectAnswerCount = 0;
-            this.quizEnded = false;
-            this.setQuestions();
-        }
-    }
-
-    @action resetQuiz() {
-        this.difficulty = "";
+      if (difficulty !== this.difficulty) {
+        this.currentQuestionIndex = 0;
+        this.difficulty = difficulty;
         this.correctAnswerCount = 0;
         this.incorrectAnswerCount = 0;
         this.quizEnded = false;
+        this.setQuestions();
+      }
+    }
+
+    @action resetQuiz() {
+      this.difficulty = '';
+      this.correctAnswerCount = 0;
+      this.incorrectAnswerCount = 0;
+      this.quizEnded = false;
     }
 
     setQuestions(inital = []) {
-        this.questions = inital;
+      this.questions = inital;
 
-        axios.get(`${apiUrl}/questions/${this.difficulty}`)
-            .then(res => this.questions = limitArray(randomArray(res.data), 15))
-            .catch(e => e);
+      axios.get(`${apiUrl}/questions/${this.difficulty}`)
+        .then((res) => {
+          this.questions = limitArray(randomArray(res.data), 15);
+        })
+        .catch(e => e);
     }
 
     answerQuestion(answer) {
-        if (answer.isCorrect === true) return this.correctAnswer();
-        this.incorrectAnswer();
-        return false;
+      if (answer.isCorrect === true) return this.correctAnswer();
+      this.incorrectAnswer();
+      return false;
     }
 
     correctAnswer() {
-        if (this.currentQuestionIndex === this.questions.length - 1) {
-            this.quizEnded = true;
-            this.correctAnswerCount += 1;
-        } else {
-            this.correctNotification = true;
+      if (this.currentQuestionIndex === this.questions.length - 1) {
+        this.quizEnded = true;
+        this.correctAnswerCount += 1;
+      } else {
+        this.correctNotification = true;
 
-            setTimeout(() => {
-                this.correctNotification = false;
-                this.correctAnswerCount += 1;
-                this.currentQuestionIndex += 1;
-            }, 1500)
-        }
+        setTimeout(() => {
+          this.correctNotification = false;
+          this.correctAnswerCount += 1;
+          this.currentQuestionIndex += 1;
+        }, 1500);
+      }
     }
 
     incorrectAnswer() {
-        this.incorrectAnswerCount += 1;
-        this.incorrectNotification = true;
+      this.incorrectAnswerCount += 1;
+      this.incorrectNotification = true;
 
-        setTimeout(() => {
-            this.incorrectNotification = false;
-        }, 1500)
+      setTimeout(() => {
+        this.incorrectNotification = false;
+      }, 1500);
     }
 }
 
