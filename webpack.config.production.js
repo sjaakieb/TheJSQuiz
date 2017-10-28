@@ -1,7 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var precss = require('precss');
-var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -18,19 +16,10 @@ module.exports = {
     },
     devtool: 'cheap-module-source-map',
     module: {
-        loaders: [{
-            test: /\.js$/,
-            include: path.join(__dirname, 'src'),
-            loader: 'babel-loader'
-        }, {
-            test: /\.scss$/i,
-            loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap']),
-        }, {
-            test: /\.(jpe?g|png|gif|svg)$/i,
-            loaders: [
-                'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                'image-webpack'
-            ]
+        rules: [{
+            test: /\.jsx?$/,
+            use: ['babel-loader'],
+            include: path.join(__dirname, 'src')
         }]
     },
     plugins: [
@@ -41,19 +30,6 @@ module.exports = {
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(true),
-        new webpack.LoaderOptionsPlugin({
-            test: /\.scss$/,
-            debug: true,
-            options:  {
-                postcss: function() {
-                    return [precss, autoprefixer];
-                },
-                context: path.join(__dirname, 'src'),
-                output: {
-                    path: path.join(__dirname, 'dist')
-                }
-            }
-        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: Infinity
@@ -63,7 +39,6 @@ module.exports = {
                 warnings: false
             }
         }),
-        new ExtractTextPlugin("assets/styles.css"),
         new HtmlWebpackPlugin({
             hash: false,
             template: './index.hbs'
