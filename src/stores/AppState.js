@@ -1,5 +1,4 @@
 import { observable, action } from 'mobx';
-import axios from 'axios';
 
 const apiUrl = 'https://thejsquiz.com/api';
 
@@ -38,11 +37,12 @@ class AppState {
     setQuestions(inital = []) {
       this.questions = inital;
 
-      axios.get(`${apiUrl}/questions/${this.difficulty}`)
-        .then((res) => {
-          this.questions = limitArray(randomArray(res.data), 15);
-        })
-        .catch(e => e);
+      // Fetch questions from API and update
+      fetch(`${apiUrl}/questions/${this.difficulty}`, { method: 'get' })
+        .then(res => res.json())
+        .then((json) => {
+          this.questions = limitArray(randomArray(json.results), 15);
+        });
     }
 
     answerQuestion(answer) {
