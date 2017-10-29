@@ -10,7 +10,7 @@ import Results from './views/Results';
 export default function RouterComponent() {
   return (
     <Router>
-      <div className="mdl-layout mdl-js-layout">
+      <div>
         <Route exact path="/" component={Home} />
         <Route exact path="/quiz" component={Quiz} />
         <Route exact path="/results" component={Results} />

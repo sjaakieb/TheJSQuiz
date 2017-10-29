@@ -16,19 +16,13 @@ export default class Card extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <h4 className="mdl-card__title-text">{this.props.title}</h4>
-        </div>
-        <div className="mdl-card__supporting-text">
-          <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.description}</span>
-        </div>
-        <Link to="/quiz" href="/">
-          <div className="mdl-card__actions">
-            <div className="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" data-upgraded=",MaterialButton">
-              {this.props.difficulty === this.store.difficulty ? 'Resume Quiz' : 'Start new quiz'}
-            </div>
-          </div>
+      <div className="card column">
+        <h4>{this.props.title}</h4>
+
+        <p>{this.props.description}</p>
+     
+        <Link to="/quiz">
+          {this.props.difficulty === this.store.difficulty ? 'Resume Quiz' : 'Start new quiz'} &rsaquo;
         </Link>
       </div>
     );

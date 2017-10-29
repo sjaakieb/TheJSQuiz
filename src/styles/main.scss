@@ -1,2 +1,14 @@
-@import "base/imports";
-@import "components/imports";
+@import "variables";
+@import "mixins";
+
+// Base styles
+@import "./base/reset";
+@import "./base/globals";
+@import "./base/animations";
+@import "./base/snippets";
+
+// Components
+@import "./components/header";
+@import "./components/card";
+@import "./components/messageBox";
+@import "./components/quiz";

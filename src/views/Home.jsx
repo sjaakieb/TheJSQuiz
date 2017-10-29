@@ -6,14 +6,14 @@ import Card from '../components/DifficultyCard';
 
 export default function Home() {
   return (
-    <main className="mdl-layout__content">
+    <main>
       <div className="page-content">
         <Header />
 
         <div className="container animate">
           <h1>Welcome to The JS Quiz</h1>
 
-          <div className="android-card-container mdl-grid">
+          <div className="row">
             <Card
               title="BEGINNER"
               description="For JavaScript developers who are less experienced (< 6 months). Or who are not completely comfortable with the language."
