@@ -3,23 +3,31 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    vendor: ['react', 'react-dom', 'react-router'],
-    app: './src/index',
-  },
+  entry: './src/index',
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'assets/[name].[hash].js',
-    chunkFilename: 'assets/[name].[chunkhash].js',
+    filename: 'assets/bundle.js',
   },
   devtool: 'cheap-module-source-map',
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      use: ['babel-loader'],
-      include: path.join(__dirname, 'src'),
-    }],
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        include: path.join(__dirname, 'src'),
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+        }, {
+          loader: 'sass-loader',
+        }],
+      },
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -43,4 +51,7 @@ module.exports = {
       template: './index.hbs',
     }),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 };
