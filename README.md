@@ -1,18 +1,10 @@
 # ThsJSQuiz
 
-## Introduction
+URL: [TheJSQuiz.com](http://www.thejsquiz.com "TheJSQuiz")
 
-Website: [view TheJSQuiz.com](http://www.thejsquiz.com "TheJSQuiz")
+The JavaScript quiz is a fun and challenging online quiz to test your JavaScript knowledge no matter what your skill level. Unique questions will be loaded each time you play and will be updated frequently with more questions.
 
->Welcome to TheJSQuiz a project I have developed to test everybodys JavaScript brains including my own! 
-The project is wrote in React with MobX for state managment. The API is using hapi and mongoose. Along with a whole load of other technologies.
-
-## API Endpoints
-
-> http://thejsquiz.com/api/questions
-
-> http://thejsquiz.com/api/questions/beginner
-
-> http://thejsquiz.com/api/questions/intermediate
-
-> http://thejsquiz.com/api/questions/advanced
+## Todo
+- Add leader boards
+- Add more questions
+- Register manifest file to make installable
