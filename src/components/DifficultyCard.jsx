@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 @inject('store') @observer
 export default class Card extends Component {
@@ -10,7 +11,8 @@ export default class Card extends Component {
     this.setQuizDifficulty = this.setQuizDifficulty.bind(this);
   }
 
-  setQuizDifficulty() {
+  setQuizDifficulty(e) {
+    e.preventDefault();
     this.store.setQuizDifficulty(this.props.difficulty);
   }
 
@@ -20,11 +22,19 @@ export default class Card extends Component {
         <h4>{this.props.title}</h4>
 
         <p>{this.props.description}</p>
-     
-        <Link to="/quiz">
-          {this.props.difficulty === this.store.difficulty ? 'Resume Quiz' : 'Start new quiz'} &rsaquo;
-        </Link>
+
+        <div onClick={e => this.setQuizDifficulty(e)}>
+          <Link to="/quiz" className="btn" title={this.props.title.toLowerCase()      }>
+            {this.props.difficulty === this.store.difficulty ? 'Resume Quiz' : `Start ${this.props.title.toLowerCase()} quiz`} &rsaquo;
+          </Link>
+        </div>
       </div>
     );
   }
 }
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  difficulty: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};

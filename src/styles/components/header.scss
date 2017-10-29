@@ -15,6 +15,10 @@ header {
         font-size: 20px;
         font-weight: 400;
         letter-spacing: .02em;
+
+        @include mobile() {
+            display: none;
+        }
     }
 
     nav {
@@ -23,9 +27,19 @@ header {
         margin-left: auto;
         display: flex;
 
+        @include mobile() {
+            margin-left: 0;
+        }
+
         a {
             font-size: 14px;
             padding: 0 24px;
+
+            &:first-of-type {
+                @include mobile() {
+                    padding-left: 0;
+                }
+            }
 
             &:last-of-type {
                 padding-right: 0 !important;
@@ -34,7 +48,7 @@ header {
     }
 
     @include mobile() {
-        padding: 0 5px;
+        padding: 0 15px;
 
         #logo {
             font-size: 16px;
@@ -44,7 +58,6 @@ header {
 
         nav {
             a {
-                font-size: 12px;
                 padding: 0 10px;
             }
         }

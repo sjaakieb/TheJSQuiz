@@ -1,36 +1,43 @@
 .quiz-component {
   .row {
-    display: block;
+    display: flex;
     overflow: hidden;
-
-    @media (min-width: 401px) {
-      margin-bottom: 40px;
-    }
+    margin: 30px 0;
 
     h5 {
-      text-transform: capitalize;;
-
-      &:first-of-type {
-        float: left;
+      font-size: 20px;
+      
+      @include mobile() {
+        font-size: initial;
       }
 
       &:last-of-type {
-        float: right;
+        margin-left: auto;
       }
     }
   }
+
+  // Code block wrapper
+  pre {
+    background: black;
+    padding: 10px;
+    margin-bottom: 40px;
+    overflow: auto;
+  }
+
+  // Quiz question
+  h3 {
+    margin-bottom: 30px;
+    font-size: 22px;
+  }
+
+  // Answers
   ul {
     li {
       font-size: 24px;
       padding-left: 0;
       padding-right: 0;
       letter-spacing: 0px;
-
-      .key {
-        @media (max-width: 767px) {
-          display: none;
-        }
-      }
 
       &:hover {
         .answer {
@@ -43,31 +50,33 @@
         width: 100%;
         border: 1px solid #ccc;
         cursor: pointer;
-        padding: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
         background: #ffffff;
         outline: 0;
         font-size: 22px;
 
-        @media (min-width: 768px) {
-          font-size: 24px;
-          margin-left: 20px;
-          padding: 18px;
+        @include mobile() {
+          margin-bottom: 15px;
+          font-size: 18px;
+          padding: 8px;
         }
       }
 
       &.incorrectAnswer {
-        pointer-events: none;
+        cursor: not-allowed;
 
         .answer {
+          pointer-events: none;
           background: $darkGray;
         }
       }
-    }
-  }
 
-  .difficulty {
-    @media (max-width: 400px) {
-      display: none;
+      &:last-of-type {
+        .answer {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

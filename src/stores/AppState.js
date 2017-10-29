@@ -34,19 +34,20 @@ class AppState {
       this.quizEnded = false;
     }
 
-    setQuestions(inital = []) {
-      this.questions = inital;
-
+    setQuestions() {
       // Fetch questions from API and update
       fetch(`${apiUrl}/questions/${this.difficulty}`, { method: 'get' })
         .then(res => res.json())
         .then((json) => {
-          this.questions = limitArray(randomArray(json.results), 15);
+          this.questions = limitArray(randomArray(json), 15);
         });
     }
 
     answerQuestion(answer) {
-      if (answer.isCorrect === true) return this.correctAnswer();
+      if (answer.isCorrect === true) {
+        return this.correctAnswer();
+      }
+
       this.incorrectAnswer();
       return false;
     }

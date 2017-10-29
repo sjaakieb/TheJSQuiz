@@ -4,17 +4,11 @@ import PropTypes from 'prop-types';
 export default function Card(props) {
   return (
     <div className="card column">
-      <div>
-        <h4>{props.title}</h4>
-      </div>
+      <h4>{props.title}</h4>
 
-      <div>
-        <span>{props.description}</span>
-      </div>
+      <p>{props.description}</p>
 
-      <div>
-        <button>View Resource</button>
-      </div>
+      <a className="btn">View Resource</a>
     </div>
   );
 }

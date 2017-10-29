@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default() => (
   <header>
-    <div id="logo">
-      <Link to="/">The JS Quiz</Link>
-    </div>
+    <Link id="logo" to="/">The JS Quiz</Link>
 
     <nav>
       <Link to="/">HOME</Link>
