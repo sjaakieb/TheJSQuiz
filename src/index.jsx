@@ -5,11 +5,12 @@ import Router from './Router';
 import AppState from './stores/AppState';
 import './styles/main.scss';
 
-const rootEl = document.getElementById('root');
+// Register service worker
+import './registerServiceWorkers';
 
 ReactDOM.render(
   <Provider store={new AppState()}>
     <Router store={new AppState()} />
   </Provider>,
-  rootEl,
+  document.getElementById('root'),
 );

@@ -1,13 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index',
+  entry: [
+    './src/index.jsx',
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'assets/bundle.js',
+    filename: 'bundle.js',
   },
   devtool: 'cheap-module-source-map',
   module: {
@@ -37,10 +40,6 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
@@ -50,6 +49,9 @@ module.exports = {
       hash: false,
       template: './index.hbs',
     }),
+    new CopyWebpackPlugin([
+      { from: 'src/sw.js' },
+    ]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
