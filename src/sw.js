@@ -6,7 +6,7 @@ self.addEventListener('install', (event) => {
         '/',
         '/quiz',
         '/resources',
-        '/styles/bundle.js',
+        '/bundle.js',
         '/api/questions/beginner',
         '/api/questions/intermediate',
         '/api/questions/advanced',
