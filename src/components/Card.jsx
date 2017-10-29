@@ -8,7 +8,7 @@ export default function Card(props) {
 
       <p>{props.description}</p>
 
-      <a className="btn">View Resource</a>
+      <a className="btn" href={props.link} target="_blank">View Resource</a>
     </div>
   );
 }
@@ -16,4 +16,5 @@ export default function Card(props) {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
 };
