@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server && node api/server.js",
-    "build": "npm run cypress open && rimraf ./dist && webpack --config webpack.config.production.js",
+    "build": "rimraf ./dist && webpack --config webpack.config.production.js",
     "test:integration": "npm run cypress open",
     "test": "jest --config jest.config.json"
   },
